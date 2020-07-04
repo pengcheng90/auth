@@ -1,0 +1,9 @@
+# 忽略鉴权url，即设置为anon的url
+ignored:
+  urls:
+    - /admin/login
+    - /admin/getLogin
+    - /admin/register
+    - /admin/getRegister
+    - /admin/forget
+    - /admin/getForget
