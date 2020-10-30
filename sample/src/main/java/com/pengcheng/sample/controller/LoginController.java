@@ -69,6 +69,7 @@ public class LoginController {
     @GetMapping(value = "/logOut")
     public String logOut() {
         Subject subject = SecurityUtils.getSubject();
+        User user = (User) subject.getPrincipal();
         subject.logout();
         return "redirect:/admin/login";
     }

@@ -1,10 +1,12 @@
 package com.pengcheng.bean;
 
+import java.io.Serializable;
+
 /**
  * @Author: pengcheng
  * @Date: 2020/7/4 11:51
  */
-public class User {
+public class User implements Serializable {
     private String id;
     private String name;
     private String password;

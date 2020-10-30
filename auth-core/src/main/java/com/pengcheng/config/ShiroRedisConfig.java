@@ -1,6 +1,8 @@
 package com.pengcheng.config;
 
 import org.apache.shiro.cache.CacheManager;
+import org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator;
+import org.apache.shiro.session.mgt.eis.SessionIdGenerator;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.crazycake.shiro.RedisCacheManager;
 import org.crazycake.shiro.RedisManager;
@@ -48,8 +50,8 @@ public class ShiroRedisConfig {
     @Bean
     public RedisSessionDAO redisSessionDAO() {
         RedisSessionDAO redisSessionDao = new RedisSessionDAO();
-        redisSessionDao.setKeyPrefix("shiro-session");//配置session前缀
-//        redisSessionDao.setSessionIdGenerator((org.apache.shiro.session.mgt.eis.SessionIdGenerator) sessionIdGenerator());
+        redisSessionDao.setKeyPrefix("shiro-token");//配置session前缀
+        redisSessionDao.setSessionIdGenerator((org.apache.shiro.session.mgt.eis.SessionIdGenerator) sessionIdGenerator());
         redisSessionDao.setRedisManager(redisManager());
         // session在redis中的保存时间,最好大于session会话超时时间
         redisSessionDao.setExpire(timeout);
@@ -70,9 +72,9 @@ public class ShiroRedisConfig {
         return redisCacheManager;
     }
 
-//    @Bean
-//    public SessionIdGenerator sessionIdGenerator() {
-//        return (SessionIdGenerator) new JavaUuidSessionIdGenerator();
-//    }
+    @Bean
+    public SessionIdGenerator sessionIdGenerator() {
+        return (SessionIdGenerator) new JavaUuidSessionIdGenerator();
+    }
 
 }
