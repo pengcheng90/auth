@@ -1,10 +1,5 @@
 package com.pengcheng;
 
-/**
- * @Author: xie
- * @Date: 2020/7/4 14:34
- */
-
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
@@ -12,7 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author liuyanzhao
+ * @Author: xie
+ * @Date: 2020/7/4 14:34
  */
 @Configuration
 @ConfigurationProperties(prefix = "ignored")
